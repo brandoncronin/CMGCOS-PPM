@@ -1,0 +1,32 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <h3>Welcome to CMGCOS-PPM</h3>
+    <p>Login in. To see it in action.</p>
+    <form class="m-t" name="loginForm" novalidate>
+      <div class="form-group" ng-class="{ 'has-error': loginForm.email.$invalid && !loginForm.email.$pristine}">
+        <input name="email" type="email" required class="form-control" placeholder="Email" ng-model="vm.user.email" />
+        <div role="alert" class="alert alert-danger"
+             ng-show="loginForm.email.$error.required && !loginForm.email.$pristine">
+          Email Required!
+        </div>
+        <div role="alert" class="alert alert-danger"
+             ng-show="loginForm.email.$error.email && !loginForm.email.$pristine">
+          Not a valid Email
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': loginForm.password.$invalid && !loginForm.password.$pristine }">
+        <input type="password" name="password" required class="form-control" placeholder="Password" ng-model="vm.user.password"/>
+        <div role="alert" class="alert alert-danger"
+             ng-show="loginForm.password.$error.required && !loginForm.password.$pristine">
+          Password Required!
+        </div>
+      </div>
+      <div class="alert alert-danger" ng-show="vm.message.length > 0">
+        <h4>{{vm.message}}</h4>
+      </div>
+      <button class="btn btn-primary block full-width m-b"
+              ng-click="vm.login()"
+              ng-disabled="loginForm.$invalid">LOGIN</button>
+    </form>
+  </div>
+</div>

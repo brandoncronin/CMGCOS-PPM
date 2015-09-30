@@ -1,0 +1,43 @@
+<div class="modal-header lazur-bg">
+  <h3 class="modal-title">Add Project</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-sm-12">
+      <form role="form" name="projectForm">
+        <div class="row form-group">
+          <div class="col-lg-12" ng-class="{ 'has-error': projectForm.name.$invalid && !projectForm.name.$pristine}">
+            <label>Name *</label>
+            <input type="text" name="name" placeholder="Enter Name" class="form-control" ng-model="vm.newProject.Name" required>
+            <div role="alert" class="text-danger">
+                            <span class="error"
+                                  ng-show="projectForm.name.$error.required && !projectForm.name.$pristine">
+                                Required!
+                            </span>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-lg-12" ng-class="{ 'has-error': projectForm.description.$invalid && !projectForm.description.$pristine}">
+            <label>Description *</label>
+            <textarea name="description" placeholder="Enter description" class="form-control" ng-model="vm.newProject.Description" required></textarea>
+            <div role="alert" class="text-danger">
+                            <span class="error"
+                                  ng-show="projectForm.description.$error.required && !projectForm.description.$pristine">
+                                Required!
+                            </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <div class="col-lg-12 text-right">
+            <button class="btn btn-danger btn-lg" type="submit" ng-click="vm.cancel()"><strong>Cancel</strong></button>
+            <button class="btn btn-success btn-lg" type="submit" ng-disabled="projectForm.$invalid" ng-click="vm.add()"><strong>Save</strong></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
